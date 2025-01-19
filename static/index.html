@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DailyCronTimeline</title>
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
+    </head>
+
+    <body>
+        <header>DailyCronTimeline</header>
+        <!-- 入力フォーム -->
+        <div class="container">
+            <form action="/api/analyze_cron" method="post">
+                <div class="input-section">
+                    <label for="cron-entries">Cron設定</label>
+                    <textarea id="cron-entries" name="cron-entries" rows="10" placeholder="* * * * * echo 'hello'">
+*/15 */2 * * * python path_to_script/script1.py
+*/30 */5 * * * python path_to_script/script2.py</textarea>
+                    <label for="date">日付</label>
+                    <input type="date" id="date" name="date">
+                    <button type="submit" style="display: block; margin: 0 auto;">解析</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- エラー表示用エリア -->
+        <div class="container">
+        </div>
+
+        <!-- 解析結果表示エリア -->
+        <div class="container" id="result-container" style="display: none;">
+            <div class="result-header">
+                解析結果
+            </div>
+
+            <div id="errors" class="error-section" style="display: none;">
+                解析に失敗した行が<b><span id="error-count">0</span>行</b>あります 。
+                <details>
+                    <summary>詳細</summary>
+                    <ul id="error_list">
+                    </ul>
+                </details>
+                </ul>
+            </div>
+
+            <h2>
+                <span id="schedule_date"></span>のスケジュール
+            </h2>
+            <div class="setting-section">
+                <button class="compact-btn" id="open-regexp-setting-btn">
+                    <i class="fas fa-compress"></i>文字列省略
+                </button>
+                <button class="compact-btn" id="open-hide-setting-btn">
+                    <i class="fas fa-eye-slash"></i>表示/非表示
+                </button>
+            </div>
+
+            <div id="schedule-container">
+            </div>
+        </div>
+
+        <!-- モーダルウィンドウ -->
+        <div id="regexp-setting-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="setting-title">コマンド文字列省略表示</h3>
+                <div class="modal-content-body">
+                    正規表現を使用し、コマンド文字列のマッチ部分のみを抽出して表示できます。
+                    <ul>
+                        <li>入力例: <code>(?<=path_to_script/)([^\s]*)\.py</code></li>
+                        <li>マッチしないコマンドは元のコマンド全文を表示します。</li>
+                        <li>複数マッチする場合は最初にマッチする部分のみを表示します。</li>
+                    </ul>
+                    <input type="text" id="filter-regex" placeholder="正規表現を入力">
+                </div>
+            </div>
+        </div>
+        <!-- モーダルウィンドウ -->
+        <div id="hide-setting-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="setting-title">コマンド表示/非表示</h3>
+                <div class="modal-content-body">
+                    <div class="header-container">
+                        <span class="header-checkbox">表示</span>
+                        <span class="header-count">実行回数</span>
+                        <span class="header-command">コマンド</span>
+                    </div>
+                    <div class="checkbox-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/modal.js"></script>
+</html>

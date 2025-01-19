@@ -1,0 +1,308 @@
+:root {
+    --primary-color: #548bac;
+    --primary-color-hover: #3b6978;
+
+    --secondary-color: #37474F;
+    --secondary-color-hover: #263238;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5em;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 10px 20px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+textarea,
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+    background-color: var(--secondary-color-hover);
+}
+
+.compact-btn {
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color-hover);
+}
+
+.input-section {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.result-header {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    border-bottom: 1px solid #ddd;
+}
+
+#schedule-container {
+    padding: 20px;
+    padding-top: 0;
+}
+
+.hour-section {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.hour-header {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    padding: 4px 0;
+}
+
+.card {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f9f9f9;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.command-time {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.command-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.command-list li {
+    padding: 5px 0;
+}
+
+.command-list li:last-child {
+    border-bottom: none;
+}
+
+.empty-hour {
+    color: #616161;
+    font-size: 0.8em;
+    padding: 3px 0;
+    font-style: italic;
+}
+
+.error-section {
+    margin: 10px 20px;
+    padding: 15px;
+    color: #f34444;
+    background-color: #ffe5e5;
+    border: 1px solid #e6c8c8;
+    border-radius: 8px;
+}
+
+.setting-section {
+    margin: 10px 20px;
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+/* モーダルのスタイル */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+code {
+    background-color: #f9f9f9;
+    padding: 2px 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.modal-content {
+    width: 75%;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content-body {
+    padding: 20px;
+}
+
+.modal-content-body ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.modal-content-body li {
+    margin-bottom: 5px;
+}
+
+.setting-title {
+    padding: 5px;
+    margin: 0 0;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+/*
+エラーメッセージのスタイル
+*/
+#error_list {
+    margin: 0;
+}
+
+/*
+モーダル関係のスタイル
+*/
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.header-checkbox {
+    flex-shrink: 0;
+    width: 50px;
+    text-align: center;
+}
+
+.header-count {
+    flex-shrink: 0;
+    width: 60px;
+    text-align: right;
+}
+
+.header-command {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.command-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2px 0;
+}
+
+label {
+    flex-shrink: 0;
+    width: 50px;
+    text-align: center;
+}
+
+.execution-count {
+    flex-shrink: 0;
+    width: 60px;
+    text-align: right;
+    color: #666;
+    font-size: 14px;
+}
+
+.command-text-block {
+    flex-grow: 1;
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: #f9f9f9;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+}
