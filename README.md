@@ -2,12 +2,14 @@
 
 cronスケジュールを解析し、指定日のコマンド実行予定を時系列で表示するWebアプリケーションです。
 
+![image](https://github.com/user-attachments/assets/a9a9cb44-927c-4ee8-8226-a3c46ce71aca)
+
 ## セットアップ
 
 1. リポジトリをクローンします。
     ```sh
-    git clone <repository_url>
-    cd <repository_directory>
+    git clone https://github.com/FunMocha/daily-cron-timeline.git
+    cd daily-cron-timeline
     ```
 
 2. 必要なパッケージをインストールします。
